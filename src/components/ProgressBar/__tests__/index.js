@@ -11,20 +11,20 @@ describe("Progress bar", () => {
   });
 
   test("should render basic Progress bar with correct percentage", () => {
-    const { container, getByText } = render(<ProgressBar percentage={40} />);
+    const { container, getByText } = render(<ProgressBar value={40} />);
     expect(container).toMatchSnapshot();
     expect(getByText("40%")).toBeInTheDocument();
   });
 
   test("should not go below zero", () => {
-    const { container, getByText } = render(<ProgressBar percentage={-170} />);
+    const { container, getByText } = render(<ProgressBar value={-170} />);
     expect(container).toMatchSnapshot();
     expect(getByText("0%")).toBeInTheDocument();
   });
 
   test("should render exceeded limit with red background", () => {
     const { container, getByText } = render(
-      <ProgressBar percentage={170} limit={120} />
+      <ProgressBar value={170} limit={100} />
     );
     expect(container).toMatchSnapshot();
     expect(getByText("170%")).toBeInTheDocument();

@@ -4,24 +4,23 @@ import "./index.scss";
 
 export default class ProgressBar extends Component {
   static propTypes = {
-    percentage: PropTypes.number,
+    value: PropTypes.number,
     limit: PropTypes.number
   };
 
   static defaultProps = {
-    percentage: 0,
+    value: 0,
     limit: 100
   };
 
   render() {
-    let { percentage, limit } = this.props;
+    let { value, limit } = this.props;
+    let percentage = Math.round((value / limit) * 100);
     if (percentage < 0) percentage = 0;
     return (
       <div className="progress-bar" data-testid="progress-bar">
         <div
-          className={
-            percentage > limit ? "progress-fill limit" : "progress-fill"
-          }
+          className={percentage > 100 ? "progress-fill limit" : "progress-fill"}
           style={{ width: `${Math.min(percentage, 100)}%` }}
         ></div>
         <span>{percentage}%</span>

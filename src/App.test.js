@@ -22,22 +22,22 @@ describe("App functionality", () => {
   });
 
   it("button onclick functionality", async () => {
-    mockResponse = { buttons: [30, -40], bars: [100], limit: 170 };
+    mockResponse = { buttons: [30, -40], bars: [100], limit: 200 };
     const { getByText, getByTestId } = render(<App />);
     const [increment, decrement, progressBar] = await waitForElement(() => [
       getByText("+30"),
       getByText("-40"),
       getByTestId("progress-bar")
     ]);
-    expect(progressBar).toHaveTextContent("100%");
+    expect(progressBar).toHaveTextContent("50%");
     fireEvent.click(increment);
-    expect(progressBar).toHaveTextContent("130%");
+    expect(progressBar).toHaveTextContent("65%");
     fireEvent.click(decrement);
-    expect(progressBar).toHaveTextContent("90%");
+    expect(progressBar).toHaveTextContent("45%");
   });
 
   it("control each progress bar by selecting", async () => {
-    mockResponse = { buttons: [30], bars: [72, 84], limit: 170 };
+    mockResponse = { buttons: [30], bars: [50, 80], limit: 100 };
     const { getByText, getByTestId } = render(<App />);
     const [
       progressBar1,
@@ -45,19 +45,19 @@ describe("App functionality", () => {
       customSelect,
       button
     ] = await waitForElement(() => [
-      getByText("72%"),
-      getByText("84%"),
+      getByText("50%"),
+      getByText("80%"),
       getByTestId("custom-select"),
       getByTestId("button")
     ]);
-    expect(progressBar1).toHaveTextContent("72%");
-    expect(progressBar2).toHaveTextContent("84%");
+    expect(progressBar1).toHaveTextContent("50%");
+    expect(progressBar2).toHaveTextContent("80%");
     fireEvent.click(button);
-    expect(progressBar1).toHaveTextContent("102%");
-    expect(progressBar2).toHaveTextContent("84%");
+    expect(progressBar1).toHaveTextContent("80%");
+    expect(progressBar2).toHaveTextContent("80%");
     fireEvent.change(customSelect, { target: { value: 2 } });
     fireEvent.click(button);
-    expect(progressBar1).toHaveTextContent("102%");
-    expect(progressBar2).toHaveTextContent("114%");
+    expect(progressBar1).toHaveTextContent("80%");
+    expect(progressBar2).toHaveTextContent("110%");
   });
 });

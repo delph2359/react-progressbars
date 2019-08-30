@@ -34,11 +34,7 @@ class App extends Component {
         <h1>Progress Bars</h1>
         {this.state.bars &&
           this.state.bars.map((bar, index) => (
-            <ProgressBar
-              key={index}
-              percentage={bar}
-              limit={this.state.limit}
-            />
+            <ProgressBar key={index} value={bar} limit={this.state.limit} />
           ))}
         <div className="controls">
           {this.state.bars && (
