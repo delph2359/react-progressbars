@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Progress bar should not go below zero 1`] = `
+<div>
+  <div
+    class="progress-bar"
+    data-testid="progress-bar"
+  >
+    <div
+      class="progress-fill"
+      style="width: 0%;"
+    />
+    <span>
+      0
+      %
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Progress bar should render basic Progress bar (no props) 1`] = `
+<div>
+  <div
+    class="progress-bar"
+    data-testid="progress-bar"
+  >
+    <div
+      class="progress-fill"
+      style="width: 0%;"
+    />
+    <span>
+      0
+      %
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Progress bar should render basic Progress bar with correct percentage 1`] = `
+<div>
+  <div
+    class="progress-bar"
+    data-testid="progress-bar"
+  >
+    <div
+      class="progress-fill"
+      style="width: 40%;"
+    />
+    <span>
+      40
+      %
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Progress bar should render exceeded limit with red background 1`] = `
+<div>
+  <div
+    class="progress-bar"
+    data-testid="progress-bar"
+  >
+    <div
+      class="progress-fill limit"
+      style="width: 100%;"
+    />
+    <span>
+      170
+      %
+    </span>
+  </div>
+</div>
+`;
