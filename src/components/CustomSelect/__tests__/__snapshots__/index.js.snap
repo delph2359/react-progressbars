@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Custom Select should display options and values correctly 1`] = `
+<div>
+  <select
+    data-testid="custom-select"
+  >
+    <option
+      value="1"
+    >
+      #progress1
+    </option>
+    <option
+      value="2"
+    >
+      #progress2
+    </option>
+  </select>
+</div>
+`;
